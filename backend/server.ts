@@ -14,9 +14,9 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "dist"))); // ?
 
-app.use("api/admins", adminsRouter);
-app.use("api/members", membersRouter);
-app.use("api/newlaunches", newLaunchesRouter);
+app.use("/api/admins", adminsRouter);
+app.use("/api/members", membersRouter);
+app.use("/api/newlaunches", newLaunchesRouter);
 
 const port = 5000;
 

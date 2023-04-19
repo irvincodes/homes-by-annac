@@ -3,9 +3,20 @@ import { Request, Response } from "express";
 
 const index = async (req: Request, res: Response) => {
   try {
-    console.log("All New Launches.");
+    const newLaunches = await NewLaunch.find({});
+    return res.status(200).json(newLaunches);
   } catch (error) {
     return res.status(500).json(error);
+  }
+};
+
+const create = async (req: Request, res: Response) => {
+  try {
+    const createdNewLaunch = await NewLaunch.create(req.body);
+    res.status(201).json(createdNewLaunch);
+    console.log("created New Launch");
+  } catch (error) {
+    res.status(400).json(error);
   }
 };
 
@@ -33,4 +44,4 @@ const index = async (req: Request, res: Response) => {
 //   }
 // };
 
-export default { index };
+export default { index, create };
