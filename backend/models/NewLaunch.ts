@@ -61,4 +61,4 @@ const newLaunchSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("NewLaunch", newLaunchSchema);
+export default mongoose.model("NewLaunch", newLaunchSchema);

@@ -14,4 +14,4 @@ const memberSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Member", memberSchema);
+export default mongoose.model("Member", memberSchema);
