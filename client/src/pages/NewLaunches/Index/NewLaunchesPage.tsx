@@ -34,16 +34,19 @@ function NewLaunchesPage() {
 
   return (
     <>
-      <div>
+      <div className="">
         <div className=" my-4 font-bold flex justify-center">
           <h1>New Launches</h1>
         </div>
         <div className=" my-4 flex justify-center">
           <SearchFilter />
         </div>
-        <div>
+        <div className="grid grid-cols-3 gap-4">
           {newLaunches?.map((newLaunch) => (
-            <div key={newLaunch._id}>
+            <div
+              key={newLaunch._id}
+              className="border border-slate-600 rounded-md p-2"
+            >
               <NewLaunchCard newLaunch={newLaunch} />
             </div>
           ))}
