@@ -54,9 +54,9 @@ const newLaunchSchema = new Schema(
     tenure: { type: String, enum: tenureTypes, required: true },
     description: { type: String, required: true },
     keyPoints: { type: String, required: true },
-    gallery: { type: String, required: true },
-    siteFloorPlans: { type: String, required: true },
-    availabilityPrice: { type: String, required: true },
+    gallery: [{ type: String, required: true }],
+    siteFloorPlans: [{ type: String }],
+    availabilityPrice: [{ type: String }],
   },
   { timestamps: true }
 );

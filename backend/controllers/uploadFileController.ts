@@ -19,7 +19,7 @@ const fileFilter = (req: Request, file: Express.Multer.File, cb: any) => {
 const upload = multer({
   storage,
   fileFilter,
-  limits: { fileSize: 1000000000, files: 2 },
+  limits: { fileSize: 1000000000, files: 10 },
 }).array("file");
 
 const uploadFile = async (req: Request, res: Response) => {
@@ -33,9 +33,11 @@ const uploadFile = async (req: Request, res: Response) => {
       originalname: file.originalname,
     }));
 
+    console.log("fileObjects: ", fileObjects);
+
     const results = await s3Upload(fileObjects);
-    console.log(results);
-    return res.json({ status: "success" });
+    console.log("results: ", results);
+    return res.json({ results });
   } catch (err) {
     console.log(err);
   }
