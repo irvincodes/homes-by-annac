@@ -8,5 +8,7 @@ router.post("/", newLaunchesController.create);
 router.post("/gallery", uploadFileController.uploadImage);
 router.post("/sitefloorplans", uploadFileController.uploadImage);
 router.post("/availabilityPrice", uploadFileController.uploadImage);
+router.put("/:id", newLaunchesController.update);
+router.get("/:id", newLaunchesController.show);
 
 module.exports = router;

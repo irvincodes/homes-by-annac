@@ -4,6 +4,8 @@ import MembersNavBar from "../Members/MembersNavBar";
 import MembersMainPage from "../Members/MembersMainPage";
 import AddNewLaunchPage from "../NewLaunches/Create/AddNewLaunchPage";
 import NewLaunchesPage from "../NewLaunches/Index/NewLaunchesPage";
+import NewLaunchDetailsPage from "../NewLaunches/Show/NewLaunchDetailsPage";
+import AuthPage from "../Authorisation/AuthPage";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
             <Route path="/" element={<MembersMainPage />} />
             <Route path="/newlaunches/new" element={<AddNewLaunchPage />} />
             <Route path="/newlaunches" element={<NewLaunchesPage />} />
+            <Route path="/newlaunches/:id" element={<NewLaunchDetailsPage />} />
+            <Route path="/login" element={<AuthPage />} />
           </Routes>
           {/* <div className="App bg-teal-200">Hello World</div> */}
         </div>

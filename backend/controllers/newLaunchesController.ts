@@ -20,6 +20,32 @@ const create = async (req: Request, res: Response) => {
   }
 };
 
+const update = async (req: Request, res: Response) => {
+  try {
+    const updatedNewLaunch = await NewLaunch.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.status(200).json(updatedNewLaunch);
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+};
+
+const show = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const newLaunch = await NewLaunch.findById(id);
+    console.log("newLaunch: ", newLaunch);
+    if (newLaunch) {
+      return res.status(200).json(newLaunch);
+    } else return res.status(404).json({ error: "New Launch not found." });
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+};
+
 // const seed = async (req, res) => {
 //   try {
 //     const newNewLaunch = await NewLaunch.create({
@@ -44,4 +70,4 @@ const create = async (req: Request, res: Response) => {
 //   }
 // };
 
-export default { index, create };
+export default { index, create, update, show };

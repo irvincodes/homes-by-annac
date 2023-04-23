@@ -55,8 +55,8 @@ const newLaunchSchema = new Schema(
     description: { type: String, required: true },
     keyPoints: { type: String, required: true },
     gallery: [{ type: String, required: true }],
-    siteFloorPlans: [{ type: String }],
-    availabilityPrice: [{ type: String }],
+    siteFloorPlans: [{ type: String, required: true }],
+    availabilityPrice: [{ type: String, required: true }],
   },
   { timestamps: true }
 );

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "npm run dev-backend --prefix backend",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run client\""
+    "dev": "concurrently \"npm run backend\" \"sleep 5 && npm run client\""
   },
   "keywords": [],
   "author": "",

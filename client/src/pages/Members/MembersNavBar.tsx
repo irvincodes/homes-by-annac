@@ -10,7 +10,7 @@ export default function MembersNavBar() {
             My Bookmarks
           </Link>
           <Link to="">Contact</Link>
-          <Link to="">New Launches</Link>
+          <Link to="/newlaunches">New Launches</Link>
           <button>Log Out</button>
         </div>
       </nav>

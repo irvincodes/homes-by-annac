@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.DATABASE_URL as string);
+mongoose.connect(process.env.DATABASE_URL as string, {
+  connectTimeoutMS: 30000, // increase the timeout to 30 seconds
+});
 
 const db = mongoose.connection;
 

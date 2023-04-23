@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 interface AvailabilityPriceUploadProps {
-  onUpload: (fileObjKeys: string[]) => void;
+  onUpload: (arrayS3URI: string[]) => void;
 }
 
 const AvailabilityPriceUpload: React.FC<AvailabilityPriceUploadProps> = ({

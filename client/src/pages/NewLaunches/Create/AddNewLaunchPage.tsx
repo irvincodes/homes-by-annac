@@ -88,17 +88,17 @@ function AddNewLaunchPage() {
     }));
   };
 
-  const setSiteFloorPlans = (fileObjKeys: string[]) => {
+  const setSiteFloorPlans = (arrayS3URI: string[]) => {
     setNewLaunch((prevNewLaunch) => ({
       ...prevNewLaunch,
-      siteFloorPlans: fileObjKeys,
+      siteFloorPlans: arrayS3URI,
     }));
   };
 
-  const setAvailabilityPrice = (fileObjKeys: string[]) => {
+  const setAvailabilityPrice = (arrayS3URI: string[]) => {
     setNewLaunch((prevNewLaunch) => ({
       ...prevNewLaunch,
-      availabilityPrice: fileObjKeys,
+      availabilityPrice: arrayS3URI,
     }));
   };
 

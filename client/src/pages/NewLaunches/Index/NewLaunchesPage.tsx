@@ -6,10 +6,19 @@ import NewLaunchCard from "./NewLaunchCard";
 interface NewLaunch {
   _id: string;
   name: string;
-  gallery: string;
-  district: string;
+  developer: string;
+  type: string;
   units: number;
+  siteArea: string;
   expTOP: string;
+  address: string;
+  district: string;
+  tenure: string;
+  description: string;
+  keyPoints: string;
+  gallery: string[];
+  siteFloorPlans: string[];
+  availabilityPrice: string[];
 }
 
 function NewLaunchesPage() {
@@ -47,7 +56,7 @@ function NewLaunchesPage() {
               key={newLaunch._id}
               className="border border-slate-600 rounded-md p-2"
             >
-              <NewLaunchCard newLaunch={newLaunch} />
+              <NewLaunchCard property={newLaunch} />
             </div>
           ))}
         </div>
