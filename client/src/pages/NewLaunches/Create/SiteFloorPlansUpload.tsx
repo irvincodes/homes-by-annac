@@ -61,7 +61,13 @@ const SiteFloorPlansUpload: React.FC<SiteFloorPlansUploadProps> = ({
       console.log("typeof data: ", typeof { data });
       const { results } = data;
       const fileObjKeys = results.map((result: { key: String }) => result.key);
-      onUpload(fileObjKeys);
+      const halfS3URI: string =
+        "https://aws-s3-p4-property-upload.s3.ap-southeast-1.amazonaws.com/";
+      const arrayS3URI = fileObjKeys.map((key: string) => {
+        return `${halfS3URI}${key}`;
+      });
+      console.log("arrayS3URI: ", arrayS3URI);
+      onUpload(arrayS3URI);
     } catch (err) {
       console.log(err);
     }

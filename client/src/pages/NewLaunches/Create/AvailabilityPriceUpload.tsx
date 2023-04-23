@@ -38,7 +38,8 @@ const AvailabilityPriceUpload: React.FC<AvailabilityPriceUploadProps> = ({
       console.log("typeof data: ", typeof { data });
       const { results } = data;
       const fileObjKeys = results.map((result: { key: String }) => result.key);
-      const halfS3URI: string = "s3://aws-s3-p4-property-upload/";
+      const halfS3URI: string =
+        "https://aws-s3-p4-property-upload.s3.ap-southeast-1.amazonaws.com/";
       const arrayS3URI = fileObjKeys.map((key: string) => {
         return `${halfS3URI}${key}`;
       });

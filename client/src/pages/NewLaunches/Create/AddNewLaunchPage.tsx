@@ -105,53 +105,73 @@ function AddNewLaunchPage() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log("handleSubmit fired!");
-    const formData = new FormData();
-    formData.append("name", newLaunch.name);
-    formData.append("developer", newLaunch.developer);
-    formData.append("type", newLaunch.type);
-    formData.append("units", newLaunch.units);
-    formData.append("siteArea", newLaunch.siteArea);
-    formData.append("expTOP", newLaunch.expTOP);
-    formData.append("address", newLaunch.address);
-    formData.append("district", newLaunch.district);
-    formData.append("tenure", newLaunch.tenure);
-    formData.append("description", newLaunch.description);
-    formData.append("keyPoints", newLaunch.keyPoints);
+    // const formData = new FormData();
+    // formData.append("name", newLaunch.name);
+    // formData.append("developer", newLaunch.developer);
+    // formData.append("type", newLaunch.type);
+    // formData.append("units", newLaunch.units);
+    // formData.append("siteArea", newLaunch.siteArea);
+    // formData.append("expTOP", newLaunch.expTOP);
+    // formData.append("address", newLaunch.address);
+    // formData.append("district", newLaunch.district);
+    // formData.append("tenure", newLaunch.tenure);
+    // formData.append("description", newLaunch.description);
+    // formData.append("keyPoints", newLaunch.keyPoints);
 
-    galleryFiles.forEach((file) => {
-      formData.append("gallery", file);
-    });
+    // galleryFiles.forEach((file) => {
+    //   formData.append("gallery", file);
+    // });
 
-    siteFloorPlanFiles.forEach((file) => {
-      formData.append("siteFloorPlans", file);
-    });
+    // siteFloorPlanFiles.forEach((file) => {
+    //   formData.append("siteFloorPlans", file);
+    // });
 
-    availabilityPriceFiles.forEach((file) => {
-      formData.append("availabilityPrice", file);
-    });
+    // availabilityPriceFiles.forEach((file) => {
+    //   formData.append("availabilityPrice", file);
+    // });
 
-    console.log("fromData: ", formData);
+    // console.log("fromData: ", formData);
+
+    // const createNewLaunch = async () => {
+    //   console.log("CreateNewLaunch fired!");
+    //   try {
+    //     const response = await fetch("/api/newlaunches", {
+    //       method: "POST",
+    //       body: formData,
+    //     });
+    //     console.log("response: ", response);
+    //     if (response.ok) {
+    //       console.log("created new launch");
+    //       navigate("/newlaunches");
+    //     } else {
+    //       console.log("unable to create New Launch!");
+    //     }
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+    // createNewLaunch();
+    // console.log("createNewLaunch() function executed");
+    //==============
 
     const createNewLaunch = async () => {
       console.log("CreateNewLaunch fired!");
-      try {
-        const response = await fetch("/api/newlaunches", {
-          method: "POST",
-          body: formData,
-        });
-        console.log("response: ", response);
-        if (response.ok) {
-          console.log("created new launch");
-          navigate("/newlaunches");
-        } else {
-          console.log("unable to create New Launch!");
-        }
-      } catch (error) {
-        console.log(error);
+      const response = await fetch("/api/newlaunches", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newLaunch),
+      });
+      console.log("response: ", response);
+      if (response.ok) {
+        console.log("created new launch");
+        navigate("/newlaunches");
+      } else {
+        console.log("unable to create New Launch!");
       }
     };
     createNewLaunch();
-    console.log("createNewLaunch() function executed");
 
     //===========
     // const fileFormData = new FormData();
