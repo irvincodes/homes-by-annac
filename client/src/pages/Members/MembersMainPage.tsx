@@ -6,9 +6,9 @@ export default function MembersMainPage() {
   return (
     <>
       {/* <MembersNavBar></MembersNavBar> */}
-      <div className=" relative w-full h-[56.25vw]">
+      <div className=" relative w-full h-[56.25vw] z-0">
         <video
-          className="w-full h-3/5 object-cover brightness-90 mb-16"
+          className="w-full h-3/5 object-cover brightness-90 mb-16 z-0"
           autoPlay
           muted
           loop

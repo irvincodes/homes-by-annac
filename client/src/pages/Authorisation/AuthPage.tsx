@@ -1,12 +1,17 @@
 import React from "react";
 import SignInForm from "./SignInForm";
 
-function AuthPage() {
+interface AuthPageProps {
+  setUser: (decodedUser: any) => void;
+}
+
+function AuthPage({ setUser }: AuthPageProps) {
   return (
     <>
       <div className="">
-        <h1 className="px-10 font-bold">Sign In</h1>
-        <SignInForm />
+        <h1 className="flex justify-center py-12 font-bold ">Sign In</h1>
+        <br />
+        <SignInForm setUser={setUser} />
       </div>
     </>
   );
