@@ -9,7 +9,18 @@ interface NewLaunch {
   _id: string;
 }
 
-function NewLaunchDetailsPage() {
+interface User {
+  accountType?: string;
+  name?: string;
+  password?: string;
+}
+
+interface NewLaunchDetailsPageProps {
+  user: User;
+  setUser: React.Dispatch<React.SetStateAction<User>>;
+}
+
+function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
   const { id } = useParams();
   const [newLaunches, setNewLaunches] = useState<NewLaunch[] | null>(null);
 
@@ -86,7 +97,30 @@ function NewLaunchDetailsPage() {
         <div className=" flex justify-center font-bold mb-6">
           <h1 className=" text-2xl">{newLaunch.name}</h1>
         </div>
-        <div className="flex justify-center mb-4">
+
+        {props.user.accountType !== "Admin" ? (
+          ""
+        ) : (
+          <div className="flex justify-center mb-4">
+            <div className=" mr-2">
+              <Link to={`/newlaunches/${id}/edit`}>
+                <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
+                  Edit Details
+                </button>
+              </Link>
+            </div>
+            <div className="flex justify-center ml-2">
+              <button
+                onClick={onDelete}
+                className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* <div className="flex justify-center mb-4">
           <div className=" mr-2">
             <Link to={`/newlaunches/${id}/edit`}>
               <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
@@ -102,7 +136,7 @@ function NewLaunchDetailsPage() {
               Delete
             </button>
           </div>
-        </div>
+        </div> */}
         <br />
         <div className="">
           <span className=" font-semibold">Developer: </span>

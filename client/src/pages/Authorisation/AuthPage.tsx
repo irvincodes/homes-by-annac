@@ -9,7 +9,7 @@ function AuthPage({ setUser }: AuthPageProps) {
   return (
     <>
       <div className="">
-        <h1 className="flex justify-center py-12 font-bold ">Sign In</h1>
+        <h1 className="flex justify-center py-12 font-bold ">Member Sign In</h1>
         <br />
         <SignInForm setUser={setUser} />
       </div>

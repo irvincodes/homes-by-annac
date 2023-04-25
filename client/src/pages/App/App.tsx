@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import EditNewLaunchPage from "../NewLaunches/Edit/EditNewLaunchPage";
 import { getUser, getToken } from "../../utilities/usersService";
+import AdminAuthPage from "../Authorisation/AdminAuthPage";
 
 // const AUTHENTICATE = true;
 
@@ -40,23 +41,30 @@ function App() {
   return (
     <div>
       <div className="flex h-screen flex-col justify-between">
-        {user && user.accountType === "Member" ? (
+        {/* {user && user.accountType === "Member" ? (
           <MembersNavBar user={user} setUser={setUser} />
-        ) : (
-          <MembersNavBar user={user} setUser={setUser} />
-        )}
+        ) : ( */}
+        <MembersNavBar user={user} setUser={setUser} />
+        {/* )} */}
 
         <div className="flex-1 overflow-y-scroll md:px-28 md:py-2">
           <Routes>
             <Route path="/" element={<MembersMainPage />} />
             <Route path="/newlaunches/new" element={<AddNewLaunchPage />} />
             <Route path="/newlaunches" element={<NewLaunchesPage />} />
-            <Route path="/newlaunches/:id" element={<NewLaunchDetailsPage />} />
+            <Route
+              path="/newlaunches/:id"
+              element={<NewLaunchDetailsPage user={user} setUser={setUser} />}
+            />
             <Route
               path="/newlaunches/:id/edit"
               element={<EditNewLaunchPage />}
             />
             <Route path="/login" element={<AuthPage setUser={setUser} />} />
+            <Route
+              path="/admin/login"
+              element={<AdminAuthPage setUser={setUser} />}
+            />
             <Route path="/signup" element={<MembersSignUpPage />} />
           </Routes>
           {/* <div className="App bg-teal-200">Hello World</div> */}

@@ -10,6 +10,7 @@ import { BiBuildingHouse } from "react-icons/bi";
 import { TbCircleKey } from "react-icons/tb";
 import { GiHeartKey } from "react-icons/gi";
 import LogOutButton from "../../components/LogOutButton";
+import { mainLogo } from "../../assets/assets";
 
 interface User {
   accountType?: string;
@@ -31,29 +32,60 @@ export default function MembersNavBar(props: MembersNavBarProps) {
 
   return (
     <>
-      <nav className=" bg-rose-100 px-2 py-6 z-50 sticky border-b border-black">
+      <nav className=" bg-rose-100 px-2 py-3 z-50 sticky border-b border-black">
         <div className="container mx-auto flex items-center justify-between justify-items-center">
+          <img
+            src={mainLogo}
+            className=" h-20 w-20 border-4 border-y-pink-200"
+          />
           <Link
             to=""
-            className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
+            className=" ml-[50%] flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
           >
             <BsHouseHeart size="1.5rem" className=" accent-white mb-1" />
             <p>Home</p>
           </Link>
-          <Link
+
+          {props.user.accountType !== undefined &&
+          props.user.accountType !== "Admin" ? (
+            <Link
+              to=""
+              className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300 "
+            >
+              <BsBookmarkStar size="1.5rem" className=" accent-white mb-1" />
+              <p>My Bookmarks</p>
+            </Link>
+          ) : (
+            ""
+          )}
+
+          {/* <Link
             to=""
             className=" ml-[50%] flex flex-col items-center hover:text-pink-600 transition-colors duration-300 "
           >
             <BsBookmarkStar size="1.5rem" className=" accent-white mb-1" />
             <p>My Bookmarks</p>
-          </Link>
-          <Link
+          </Link> */}
+
+          {props.user.accountType === "Admin" ? (
+            ""
+          ) : (
+            <Link
+              to=""
+              className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
+            >
+              <RiChatHeartLine size="1.5rem" className=" accent-white mb-1" />
+              <p>Contact</p>
+            </Link>
+          )}
+
+          {/* <Link
             to=""
             className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
           >
             <RiChatHeartLine size="1.5rem" className=" accent-white mb-1" />
             <p>Contact</p>
-          </Link>
+          </Link> */}
           <Link
             to="/newlaunches"
             className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
@@ -94,8 +126,8 @@ export default function MembersNavBar(props: MembersNavBarProps) {
             ) : null}
           </div> */}
 
-          {props.user ? (
-            <LogOutButton />
+          {props.user.accountType !== undefined ? (
+            <LogOutButton setUser={props.setUser} />
           ) : (
             <div>
               <button
@@ -106,7 +138,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
                 Log In
               </button>
               {dropdownVisibile && (
-                <ul className="absolute mr-32 right-4 left-auto z-10 divide-y whitespace-nowrap border-2 bg-white">
+                <ul className=" flex flex-col items-center absolute mr-32 right-4 left-auto z-10 divide-y whitespace-nowrap border-2 bg-white">
                   <LoggedOutOptions />
                 </ul>
               )}

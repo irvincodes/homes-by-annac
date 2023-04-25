@@ -12,11 +12,12 @@ interface LogOutButtonProps {
   setUser: React.Dispatch<React.SetStateAction<User>>;
 }
 
-const LogOutButton = () => {
+const LogOutButton = (props: LogOutButtonProps) => {
   console.log("LogOutButton fired!");
   const navigate = useNavigate();
-  const handleLogOut = async () => {
+  const handleLogOut = () => {
     localStorage.removeItem("token");
+    props.setUser({ accountType: undefined });
     navigate("/");
   };
 
