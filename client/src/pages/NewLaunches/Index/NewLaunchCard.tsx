@@ -21,18 +21,32 @@ interface NewLaunch {
 
 function NewLaunchCard({ property }: { property: NewLaunch }) {
   return (
-    <div>
+    <div className="flex justify-center bg-slate-100 py-2">
       <Link
         to={`/newlaunches/${property._id}`}
         className="text-wAqua hover:underline"
       >
-        <h1>{property.name}</h1>
-        <div className=" w-40">
-          <img src={property.gallery[0]} />
+        <h1 className=" font-bold text-center mb-4">{property.name}</h1>
+        <div className=" flex justify-center">
+          <img
+            className=" border-2 border-gray-500 w-44 h-44 object-cover object-center mb-4"
+            src={property.gallery[0]}
+          />
         </div>
-        <div>District: {property.district}</div>
-        <div>Units: {property.units}</div>
-        <div>Est. TOP Year: {property.expTOP}</div>
+        <div>
+          <div>
+            <span className="font-semibold text-right">District: </span>
+            {property.district}
+          </div>
+          <div>
+            <span className="font-semibold">Units: </span>
+            {property.units}
+          </div>
+          <div>
+            <span className="font-semibold">Est. TOP Year: </span>
+            {property.expTOP}
+          </div>
+        </div>
       </Link>
     </div>
   );

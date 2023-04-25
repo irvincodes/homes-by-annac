@@ -3,6 +3,48 @@ import { useNavigate, useParams } from "react-router-dom";
 import GalleryUpload from "../Create/GalleryUpload";
 import SiteFloorPlansUpload from "../Create/SiteFloorPlansUpload";
 import AvailabilityPriceUpload from "../Create/AvailabilityPriceUpload";
+import DropdownSelect from "../Create/DropdownSelect";
+
+const typeTypes = [
+  "Residential Highrise",
+  "Residential Lowrise",
+  "Executive Condominium",
+  "Mixed Development",
+  "Residential Landed",
+];
+
+const districtTypes = [
+  "D01 - Raffles Place, Cecil, Marina, People's Park",
+  "D02 -  Anson, Tanjong Pagar",
+  "D03 - Queenstown, Tiong Bahru",
+  "D04 - Telok Blangah, Harbourfront",
+  "D05 - Pasir Panjang, Clementi New Town",
+  "D06 - City Hall, High Street, North Bridge Road",
+  "D07 - Beach Road, Bencoolen Road, Bugis, Rochor",
+  "D08 - Little India, Farrer Park, Serangoon Road",
+  "D09 - Orchard, Cairnhill, River Valley",
+  "D10 - Bukit Timah, Holland Road, Tanglin, Grange",
+  "D11 - Novena, Thomson, Newton, Dunearn",
+  "D12 - Balestier, Toa Payoh, Serangoon",
+  "D13 - Macpherson, Braddell, Potong Pasir",
+  "D14 - Eunos, Geylang, Kembangan, Paya Lebar",
+  "D15 - Katong, Joo Chiat, Amber Road",
+  "D16 - Bedok, Upper East Coast, Eastwood, Kew Drive",
+  "D17 - Changi, Loyang, Pasir Ris",
+  "D18 - Tampines, Pasir Ris",
+  "D19 - Serangoon Garden, Hougang, Punggol",
+  "D20 - Bishan, Ang Mo Kio",
+  "D21 - Upper Bukit Timah, Clementi Park, Ulu Pandan",
+  "D22 - Boon Lay, Jurong, Tuas",
+  "D23 - Hillview, Bukit Panjang, Choa Chu Kang",
+  "D24 - Lim Chu Kang, Tengah",
+  "D25 - Kranji, Woodgrove",
+  "D26 - Upper Thomson, Springleaf",
+  "D27 - Yishun, Sembawang",
+  "D28 - Seletar",
+];
+
+const tenureTypes = ["99 Years", "Freehold", "999 Years", "Others"];
 
 function EditNewLaunchPage() {
   const { id } = useParams();
@@ -33,7 +75,11 @@ function EditNewLaunchPage() {
     getNewLaunch();
   }, [id]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const key = event.target.name;
     const value = event.target.value;
 
@@ -61,10 +107,30 @@ function EditNewLaunchPage() {
     }));
   };
 
+  const handleUpdate = async () => {
+    const response = await fetch(`/api/newlaunches/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newLaunch),
+    });
+    navigate(`/newlaunches/${id}`);
+  };
+
   return (
-    <div className=" flex justify-center">
+    <div className=" flex flex-col items-center justify-center">
       <div className=" flex justify-center font-bold my-6">
-        <h1>Edit New Launch Details</h1>
+        <h1 className=" text-xl">Edit New Launch Details</h1>
+      </div>
+      <br />
+      <div className="flex justify-center">
+        <button
+          onClick={handleUpdate}
+          className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold"
+        >
+          Update Details
+        </button>
       </div>
       <br />
       <label className=" font-semibold">Project Name: </label>
@@ -87,12 +153,18 @@ function EditNewLaunchPage() {
       <br />
       <label className=" font-semibold">Type: </label>
       <br />
-      <input
+      <DropdownSelect
+        options={typeTypes}
+        value={newLaunch.type}
+        onChange={handleChange}
+        name="type"
+      />
+      {/* <input
         className="mb-4 w-96 bg-gray-200 p-2"
         name="type"
         value={newLaunch.type}
         onChange={handleChange}
-      ></input>
+      ></input> */}
       <br />
       <label className=" font-semibold">Total Units: </label>
       <br />
@@ -103,7 +175,7 @@ function EditNewLaunchPage() {
         onChange={handleChange}
       ></input>
       <br />
-      <label className=" font-semibold">Site Area: </label>
+      {/* <label className=" font-semibold">Site Area: </label>
       <br />
       <input
         className="mb-4 w-96 bg-gray-200 p-2"
@@ -111,7 +183,7 @@ function EditNewLaunchPage() {
         value={newLaunch.siteArea}
         onChange={handleChange}
       ></input>
-      <br />
+      <br /> */}
       <label className=" font-semibold">Estimated TOP: </label>
       <br />
       <input
@@ -132,21 +204,33 @@ function EditNewLaunchPage() {
       <br />
       <label className=" font-semibold">District: </label>
       <br />
-      <input
+      <DropdownSelect
+        options={districtTypes}
+        value={newLaunch.district}
+        onChange={handleChange}
+        name="district"
+      />
+      {/* <input
         className="mb-4 w-96 bg-gray-200 p-2"
         name="district"
         value={newLaunch.district}
         onChange={handleChange}
-      ></input>
+      ></input> */}
       <br />
       <label className=" font-semibold">Tenure: </label>
       <br />
-      <input
+      <DropdownSelect
+        options={tenureTypes}
+        value={newLaunch.tenure}
+        onChange={handleChange}
+        name="tenure"
+      />
+      {/* <input
         className="mb-4 w-96 bg-gray-200 p-2"
         name="tenure"
         value={newLaunch.tenure}
         onChange={handleChange}
-      ></input>
+      ></input> */}
       <br />
       <label className=" font-semibold">Description: </label>
       <br />
@@ -157,7 +241,7 @@ function EditNewLaunchPage() {
         onChange={handleChange}
       ></input>
       <br />
-      <label className=" font-semibold">Key Points: </label>
+      {/* <label className=" font-semibold">Key Points: </label>
       <br />
       <input
         className="mb-4 w-96 bg-gray-200 p-2"
@@ -165,7 +249,7 @@ function EditNewLaunchPage() {
         value={newLaunch.keyPoints}
         onChange={handleChange}
       ></input>
-      <br />
+      <br /> */}
       <GalleryUpload onUpload={setGallery} />
       {/* <label className=" font-semibold">Gallery: </label>
             <br />
@@ -220,9 +304,9 @@ function EditNewLaunchPage() {
               onChange={handleChange}
             ></input> */}
       <br />
-      <button className=" bg-teal-200 py-2 px-4 border-2 border-cyan-950 rounded-md font-semibold">
+      {/* <button className=" bg-teal-200 py-2 px-4 border-2 border-cyan-950 rounded-md font-semibold">
         SUBMIT
-      </button>
+      </button> */}
     </div>
   );
 }

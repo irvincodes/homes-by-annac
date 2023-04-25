@@ -10,5 +10,6 @@ router.post("/sitefloorplans", uploadFileController.uploadImage);
 router.post("/availabilityPrice", uploadFileController.uploadImage);
 router.put("/:id", newLaunchesController.update);
 router.get("/:id", newLaunchesController.show);
+router.delete("/:id", newLaunchesController.delete);
 
 module.exports = router;

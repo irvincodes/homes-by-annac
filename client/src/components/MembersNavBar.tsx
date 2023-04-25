@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import LoggedInOptions from "../../components/LoggedInOptions";
-import LoggedOutOptions from "../../components/LoggedOutOptions";
+import LoggedInOptions from "./LoggedInOptions";
+import LoggedOutOptions from "./LoggedOutOptions";
 import { BsHouseHeart } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
 import { BsBookmarkStar } from "react-icons/bs";
@@ -9,7 +9,8 @@ import { RiChatHeartLine } from "react-icons/ri";
 import { BiBuildingHouse } from "react-icons/bi";
 import { TbCircleKey } from "react-icons/tb";
 import { GiHeartKey } from "react-icons/gi";
-import LogOutButton from "../../components/LogOutButton";
+import { TbDoorExit } from "react-icons/tb";
+import LogOutButton from "./LogOutButton";
 
 interface User {
   accountType?: string;
@@ -17,16 +18,16 @@ interface User {
   password?: string;
 }
 
-interface MembersNavBarProps {
+export interface MembersNavBarProps {
   user: User;
   setUser: React.Dispatch<React.SetStateAction<User>>;
 }
 
 export default function MembersNavBar(props: MembersNavBarProps) {
-  const [dropdownVisibile, setDropdownVisible] = useState(false);
+  const [dropdownVisbile, setDropdownVisible] = useState(false);
 
   const handleDropdown = () => {
-    setDropdownVisible(!dropdownVisibile);
+    setDropdownVisible(!dropdownVisbile);
   };
 
   return (
@@ -93,7 +94,6 @@ export default function MembersNavBar(props: MembersNavBarProps) {
               </ul>
             ) : null}
           </div> */}
-
           {props.user ? (
             <LogOutButton />
           ) : (
@@ -105,7 +105,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
                 <GiHeartKey size="1.5rem" className=" accent-white mb-1" />
                 Log In
               </button>
-              {dropdownVisibile && (
+              {dropdownVisbile && (
                 <ul className="absolute mr-32 right-4 left-auto z-10 divide-y whitespace-nowrap border-2 bg-white">
                   <LoggedOutOptions />
                 </ul>

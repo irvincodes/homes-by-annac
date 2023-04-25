@@ -28,6 +28,7 @@ const update = async (req: Request, res: Response) => {
       { new: true }
     );
     res.status(200).json(updatedNewLaunch);
+    console.log("newLaunch updated!");
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -43,6 +44,15 @@ const show = async (req: Request, res: Response) => {
     } else return res.status(404).json({ error: "New Launch not found." });
   } catch (error) {
     res.status(500).json({ error });
+  }
+};
+
+const deleteNewLaunch = async (req: Request, res: Response) => {
+  try {
+    const deletedNewLaunch = await NewLaunch.findByIdAndDelete(req.params.id);
+    res.status(200).json(deletedNewLaunch);
+  } catch (error) {
+    res.status(400).json({ error });
   }
 };
 
@@ -70,4 +80,4 @@ const show = async (req: Request, res: Response) => {
 //   }
 // };
 
-export default { index, create, update, show };
+export default { index, create, update, show, delete: deleteNewLaunch };

@@ -45,7 +45,7 @@ function NewLaunchesPage() {
     <>
       <div className="">
         <div className=" my-4 font-bold flex justify-center">
-          <h1>New Launches</h1>
+          <h1 className="text-2xl">New Launches</h1>
         </div>
         <div className=" my-4 flex justify-center">
           <SearchFilter />

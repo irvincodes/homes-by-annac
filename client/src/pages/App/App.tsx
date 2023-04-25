@@ -9,6 +9,8 @@ import AuthPage from "../Authorisation/AuthPage";
 import MembersSignUpPage from "../Members/Create/MembersSignUpPage";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+import EditNewLaunchPage from "../NewLaunches/Edit/EditNewLaunchPage";
+import { getUser, getToken } from "../../utilities/usersService";
 
 // const AUTHENTICATE = true;
 
@@ -24,14 +26,16 @@ interface User {
 }
 
 function App() {
-  const [user, setUser] = useState<User>({});
-  useEffect(() => {
-    const token = localStorage.getItem("token") || null;
-    if (token) {
-      const decoded: { [key: string]: any } = jwt_decode(token);
-      setUser(decoded);
-    }
-  }, []);
+  const [user, setUser] = useState<User>(getUser());
+  console.log("user: ", user);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token") || null;
+  //   if (token) {
+  //     const decoded: { [key: string]: any } = jwt_decode(token);
+  //     console.log("decoded: ", decoded);
+  //     setUser(decoded);
+  //   }
+  // }, []);
 
   return (
     <div>
@@ -48,6 +52,10 @@ function App() {
             <Route path="/newlaunches/new" element={<AddNewLaunchPage />} />
             <Route path="/newlaunches" element={<NewLaunchesPage />} />
             <Route path="/newlaunches/:id" element={<NewLaunchDetailsPage />} />
+            <Route
+              path="/newlaunches/:id/edit"
+              element={<EditNewLaunchPage />}
+            />
             <Route path="/login" element={<AuthPage setUser={setUser} />} />
             <Route path="/signup" element={<MembersSignUpPage />} />
           </Routes>

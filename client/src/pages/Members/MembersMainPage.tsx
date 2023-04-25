@@ -15,7 +15,7 @@ export default function MembersMainPage() {
           src="https://i.imgur.com/NA835MZ.mp4"
         ></video>
         <div>
-          <p>Looking For Your Dream Home?</p>
+          <p>Content</p>
         </div>
       </div>
     </>
