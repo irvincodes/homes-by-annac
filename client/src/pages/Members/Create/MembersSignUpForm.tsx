@@ -53,6 +53,7 @@ function MembersSignUpForm() {
           <br />
           <input
             name="email"
+            type="email"
             value={member.email}
             onChange={handleChange}
             required
@@ -63,6 +64,7 @@ function MembersSignUpForm() {
           <br />
           <input
             name="password"
+            type="password"
             value={member.password}
             onChange={handleChange}
             required

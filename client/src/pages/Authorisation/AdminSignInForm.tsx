@@ -50,6 +50,7 @@ const AdminSignInForm: React.FC<AdminSignInFormProps> = ({ setUser }) => {
           <br />
           <input
             name="email"
+            type="email"
             placeholder="e.g homefinder@gmail.com"
             value={loginAttempt.email}
             onChange={handleChange}
@@ -60,6 +61,7 @@ const AdminSignInForm: React.FC<AdminSignInFormProps> = ({ setUser }) => {
           <br />
           <input
             name="password"
+            type="password"
             placeholder="your password"
             value={loginAttempt.password}
             onChange={handleChange}
