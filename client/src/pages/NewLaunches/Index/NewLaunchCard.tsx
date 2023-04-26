@@ -91,13 +91,17 @@ function NewLaunchCard(props: NewLaunchCardProps) {
           </div>
         </div>
       </Link>
-      <span>
-        <BookmarkButton
-          id={props.user._id!}
-          newLaunchId={props.property._id}
-          removeNewLaunch={removeNewLaunch}
-        />
-      </span>
+      {props.user.accountType === "Member" ? (
+        <span>
+          <BookmarkButton
+            id={props.user._id!}
+            newLaunchId={props.property._id}
+            removeNewLaunch={removeNewLaunch}
+          />
+        </span>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

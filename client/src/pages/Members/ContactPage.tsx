@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactPage = () => {
   return (
-    <div className="flex flex-col items-center h-screen">
+    <div className="flex flex-col items-center">
       <div className=" my-8">
         <h1 className=" font-bold text-2xl">Have A Question?</h1>
       </div>

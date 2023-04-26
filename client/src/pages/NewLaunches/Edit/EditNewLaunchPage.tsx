@@ -129,7 +129,7 @@ function EditNewLaunchPage() {
       <div className="flex justify-center">
         <button
           onClick={handleUpdate}
-          className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold"
+          className=" bg-pink-200 hover:bg-pink-400 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold"
         >
           Update Details
         </button>

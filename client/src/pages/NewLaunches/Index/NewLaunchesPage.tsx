@@ -75,7 +75,7 @@ function NewLaunchesPage(props: NewLaunchesPageProps) {
 
         {props.user.accountType === "Admin" ? (
           <div className=" mt-8 font-bold flex justify-center">
-            <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
+            <button className=" bg-pink-200 hover:bg-pink-400 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
               <Link to="/newlaunches/new">Add New Listing</Link>
             </button>
           </div>

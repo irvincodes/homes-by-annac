@@ -10,6 +10,7 @@ interface NewLaunch {
 }
 
 interface User {
+  _id?: string;
   accountType?: string;
   name?: string;
   password?: string;
@@ -21,6 +22,9 @@ interface NewLaunchDetailsPageProps {
 }
 
 function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { id } = useParams();
   const [newLaunches, setNewLaunches] = useState<NewLaunch[] | null>(null);
 
@@ -43,8 +47,13 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
 
   const onDelete = async () => {
     try {
+      const token = localStorage.getItem("token");
+
       const response = await fetch(`/api/newlaunches/${newLaunch._id}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
       });
       if (response.ok) {
         removeNewLaunch(newLaunch._id);
@@ -107,7 +116,7 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
           <div className="flex justify-center mb-4">
             <div className=" mr-2">
               <Link to={`/newlaunches/${id}/edit`}>
-                <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
+                <button className=" bg-pink-200 hover:bg-pink-400 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
                   Edit Details
                 </button>
               </Link>
@@ -115,7 +124,7 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
             <div className="flex justify-center ml-2">
               <button
                 onClick={onDelete}
-                className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold"
+                className=" bg-pink-200 hover:bg-pink-400 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold"
               >
                 Delete
               </button>
