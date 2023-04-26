@@ -2,12 +2,12 @@
   "name": "mern-typescript",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "npm run dev-backend --prefix backend",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run backend\" \"sleep 5 && npm run client\"",
-    "start": "node index.js"
+    "dev": "concurrently \"npm run backend\" \"sleep 5 && npm run client\""
   },
   "keywords": [],
   "author": "",
