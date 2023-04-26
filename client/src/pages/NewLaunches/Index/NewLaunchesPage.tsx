@@ -37,7 +37,7 @@ interface NewLaunchesPageProps {
 function NewLaunchesPage(props: NewLaunchesPageProps) {
   const [newLaunches, setNewLaunches] = useState<NewLaunch[]>([]);
   const [selectedDistrict, setSelectedDistrict] = useState(
-    "--- Display All New Launches ---"
+    "--- --- --- Display All New Launches --- --- ---"
   );
 
   const handleDistrictChange = (district: string) => {
@@ -62,7 +62,7 @@ function NewLaunchesPage(props: NewLaunchesPageProps) {
   }, []);
 
   const filteredNewLaunches =
-    selectedDistrict === "--- Display All New Launches ---"
+    selectedDistrict === "--- --- --- Display All New Launches --- --- ---"
       ? newLaunches
       : newLaunches.filter((d) => d.district === selectedDistrict);
 
@@ -72,16 +72,22 @@ function NewLaunchesPage(props: NewLaunchesPageProps) {
         <div className=" my-4 font-bold flex justify-center">
           <h1 className="text-4xl">New Launches</h1>
         </div>
-        <div className=" mt-8 font-bold flex justify-center">
-          <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
-            <Link to="/newlaunches/new">Add New Listing</Link>
-          </button>
-        </div>
+
+        {props.user.accountType === "Admin" ? (
+          <div className=" mt-8 font-bold flex justify-center">
+            <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
+              <Link to="/newlaunches/new">Add New Listing</Link>
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className=" my-4 flex justify-center">
           <SearchFilter
             options={
               [
-                "--- Display All New Launches ---",
+                "--- --- --- Display All New Launches --- --- ---",
                 ...new Set(newLaunches.map((nl) => nl.district)),
               ] as string[]
             }
@@ -89,11 +95,11 @@ function NewLaunchesPage(props: NewLaunchesPageProps) {
             onValueChange={handleDistrictChange}
           />
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-20">
           {filteredNewLaunches?.map((newLaunch) => (
             <div
               key={newLaunch._id}
-              className="border border-slate-600 rounded-md p-2"
+              className="border border-slate-600 rounded-md p-2 hover:-rotate-1 hover:duration-300 duration-300 shadow-lg shadow-slate-500/90"
             >
               <NewLaunchCard
                 property={newLaunch}

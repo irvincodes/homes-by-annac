@@ -97,6 +97,9 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
         <div className=" flex justify-center font-bold mb-6">
           <h1 className=" text-2xl">{newLaunch.name}</h1>
         </div>
+        <div className="z-0 px-0 mt-2 mb-6">
+          <div className="w-full   bg-rose-100 left-0 right-0 mx-auto bg- py-2"></div>
+        </div>
 
         {props.user.accountType !== "Admin" ? (
           ""

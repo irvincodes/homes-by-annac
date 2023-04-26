@@ -13,6 +13,7 @@ import EditNewLaunchPage from "../NewLaunches/Edit/EditNewLaunchPage";
 import { getUser, getToken } from "../../utilities/usersService";
 import AdminAuthPage from "../Authorisation/AdminAuthPage";
 import BookmarksPage from "../Members/Update/BookmarksPage";
+import ContactPage from "../Members/ContactPage";
 
 // const AUTHENTICATE = true;
 
@@ -78,6 +79,7 @@ function App() {
               path="/members/:id/bookmarks"
               element={<BookmarksPage user={user} setUser={setUser} />}
             />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
           {/* <div className="App bg-teal-200">Hello World</div> */}
         </div>

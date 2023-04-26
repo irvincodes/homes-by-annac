@@ -44,7 +44,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
             className=" ml-[50%] flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
           >
             <BsHouseHeart size="1.5rem" className=" accent-white mb-1" />
-            <p>Home</p>
+            <p className=" font-semibold">Home</p>
           </Link>
 
           {props.user.accountType !== undefined &&
@@ -54,7 +54,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
               className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300 "
             >
               <BsBookmarkStar size="1.5rem" className=" accent-white mb-1" />
-              <p>My Bookmarks</p>
+              <p className=" font-semibold">My Bookmarks</p>
             </Link>
           ) : (
             ""
@@ -72,11 +72,11 @@ export default function MembersNavBar(props: MembersNavBarProps) {
             ""
           ) : (
             <Link
-              to=""
+              to="/contact"
               className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
             >
               <RiChatHeartLine size="1.5rem" className=" accent-white mb-1" />
-              <p>Contact</p>
+              <p className=" font-semibold">Contact</p>
             </Link>
           )}
 
@@ -92,7 +92,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
             className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
           >
             <BiBuildingHouse size="1.5rem" className=" accent-white mb-1" />
-            <p>New Launches</p>
+            <p className=" font-semibold">New Launches</p>
           </Link>
           {/* {props.user ? (
             <Link to="" onClick={handleDropdown}>
@@ -136,10 +136,10 @@ export default function MembersNavBar(props: MembersNavBarProps) {
                 className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
               >
                 <GiHeartKey size="1.5rem" className=" accent-white mb-1" />
-                Log In
+                <p className=" font-semibold">Log In</p>
               </button>
               {dropdownVisibile && (
-                <ul className=" flex flex-col items-center absolute mr-32 right-4 left-auto z-10 divide-y whitespace-nowrap border-2 bg-white">
+                <ul className=" flex flex-col items-center absolute mr-32 right-4 left-auto z-10 divide-y divide-rose-500 whitespace-nowrap border-2 border-rose-200 bg-white">
                   <LoggedOutOptions />
                 </ul>
               )}

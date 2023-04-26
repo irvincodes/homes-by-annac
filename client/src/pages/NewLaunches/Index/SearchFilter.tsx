@@ -18,7 +18,7 @@ function SearchFilter(props: SearchFilterProps) {
       <div className="mt-4">
         <label className=" font-semibold">Filter By District: </label>
         <select
-          className=" border-2 border-gray-500 px-2"
+          className=" border-2 border-gray-500 px-2 pl-2"
           value={props.value}
           onChange={handleValueChange}
         >
