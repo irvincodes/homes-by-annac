@@ -12,6 +12,7 @@ import jwt_decode from "jwt-decode";
 import EditNewLaunchPage from "../NewLaunches/Edit/EditNewLaunchPage";
 import { getUser, getToken } from "../../utilities/usersService";
 import AdminAuthPage from "../Authorisation/AdminAuthPage";
+import BookmarksPage from "../Members/Update/BookmarksPage";
 
 // const AUTHENTICATE = true;
 
@@ -24,6 +25,7 @@ interface User {
   accountType?: string;
   name?: string;
   password?: string;
+  _id?: string;
 }
 
 function App() {
@@ -51,7 +53,10 @@ function App() {
           <Routes>
             <Route path="/" element={<MembersMainPage />} />
             <Route path="/newlaunches/new" element={<AddNewLaunchPage />} />
-            <Route path="/newlaunches" element={<NewLaunchesPage />} />
+            <Route
+              path="/newlaunches"
+              element={<NewLaunchesPage user={user} setUser={setUser} />}
+            />
             <Route
               path="/newlaunches/:id"
               element={<NewLaunchDetailsPage user={user} setUser={setUser} />}
@@ -66,6 +71,10 @@ function App() {
               element={<AdminAuthPage setUser={setUser} />}
             />
             <Route path="/signup" element={<MembersSignUpPage />} />
+            <Route
+              path="/members/:id/bookmarks"
+              element={<BookmarksPage user={user} setUser={setUser} />}
+            />
           </Routes>
           {/* <div className="App bg-teal-200">Hello World</div> */}
         </div>

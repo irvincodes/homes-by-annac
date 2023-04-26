@@ -16,6 +16,7 @@ interface User {
   accountType?: string;
   name?: string;
   password?: string;
+  _id?: string;
 }
 
 interface MembersNavBarProps {
@@ -49,7 +50,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
           {props.user.accountType !== undefined &&
           props.user.accountType !== "Admin" ? (
             <Link
-              to=""
+              to={`/members/${props.user._id}/bookmarks`}
               className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300 "
             >
               <BsBookmarkStar size="1.5rem" className=" accent-white mb-1" />

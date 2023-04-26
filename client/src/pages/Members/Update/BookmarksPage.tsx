@@ -1,7 +1,6 @@
 import React from "react";
-import SearchFilter from "./SearchFilter";
 import { useState, useEffect } from "react";
-import NewLaunchCard from "./NewLaunchCard";
+import NewLaunchCard from "../../NewLaunches/Index/NewLaunchCard";
 
 interface NewLaunch {
   _id: string;
@@ -28,49 +27,46 @@ interface User {
   _id?: string;
 }
 
-interface NewLaunchesPageProps {
+interface BookmarksPageProps {
   user: User;
   setUser: React.Dispatch<React.SetStateAction<User>>;
 }
 
-function NewLaunchesPage(props: NewLaunchesPageProps) {
-  const [newLaunches, setNewLaunches] = useState<NewLaunch[]>([]);
+const BookmarksPage = (props: BookmarksPageProps) => {
+  const [bookmarkedLaunches, setBookmarkedLaunches] = useState<NewLaunch[]>([]);
 
   useEffect(() => {
-    const fetchNewLaunches = async () => {
-      console.log("fetchNewLaunches fired");
+    const fetchBookmarkedLaunches = async () => {
+      console.log("fetchBookmarkedLaunches fired");
       try {
         console.log("try fired");
-        const response = await fetch("/api/newlaunches");
+        const response = await fetch(`/api/members/${props.user._id}`);
         console.log("response: ", response);
         const data = await response.json();
-        setNewLaunches(data);
-        console.log("newLaunches: ", newLaunches);
+        setBookmarkedLaunches(data);
+        console.log("bookmarkedLaunches: ", bookmarkedLaunches);
       } catch (error) {
         console.error(error);
       }
     };
-    fetchNewLaunches();
+    fetchBookmarkedLaunches();
   }, []);
 
   return (
     <>
-      <div className="">
+      <div>
         <div className=" my-4 font-bold flex justify-center">
-          <h1 className="text-2xl">New Launches</h1>
-        </div>
-        <div className=" my-4 flex justify-center">
-          <SearchFilter />
+          <h1 className="text-2xl">Bookmarked New Launches</h1>
         </div>
         <div className="grid grid-cols-3 gap-4">
-          {newLaunches?.map((newLaunch) => (
+          {bookmarkedLaunches?.map((bookmark) => (
             <div
-              key={newLaunch._id}
+              key={bookmark._id}
               className="border border-slate-600 rounded-md p-2"
             >
               <NewLaunchCard
-                property={newLaunch}
                 user={props.user}
+                property={bookmark}
                 setUser={props.setUser}
               />
             </div>
@@ -79,6 +75,6 @@ function NewLaunchesPage(props: NewLaunchesPageProps) {
       </div>
     </>
   );
-}
+};
 
-export default NewLaunchesPage;
+export default BookmarksPage;

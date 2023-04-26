@@ -3,14 +3,6 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const index = async (req: Request, res: Response) => {
-  try {
-    console.log("All Members.");
-  } catch (error) {
-    return res.status(500).json(error);
-  }
-};
-
 const create = async (req: Request, res: Response) => {
   try {
     const { name, email, password, accountType } = req.body;
@@ -53,6 +45,7 @@ const login = async (req: Request, res: Response) => {
       name: member.name,
       email: member.email,
       accountType: member.accountType,
+      _id: member._id,
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET as string, {
@@ -64,4 +57,44 @@ const login = async (req: Request, res: Response) => {
   }
 };
 
-export default { index, create, login };
+const show = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  try {
+    const memberBookmarks = await Member.findById(id).populate(
+      "bookmarkedLaunches"
+    );
+    if (!memberBookmarks) {
+      return res.status(404).json({ message: "Invalid consumer." });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+const update = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { bookmarkId } = req.body;
+  try {
+    const member = await Member.findById(id);
+    if (!member) {
+      return res.status(404).json({ message: "Member not found" });
+    }
+    const bookmarks = member?.bookmarkedLaunches;
+
+    if (bookmarks?.includes(bookmarkId)) {
+      const filteredBookmarks = bookmarks.filter(
+        (b) => b.toString() !== bookmarkId
+      );
+      member.bookmarkedLaunches = filteredBookmarks;
+    } else {
+      bookmarks?.push(bookmarkId);
+    }
+    const updatedMember = await member?.save();
+    res.status(200).json(updatedMember?.bookmarkedLaunches);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+export default { create, login, show, update };

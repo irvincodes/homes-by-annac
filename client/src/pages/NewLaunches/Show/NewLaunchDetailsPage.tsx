@@ -88,7 +88,7 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="w-4/6">
-        <div className=" flex justify-center">
+        <div className=" flex justify-center mt-4">
           <img
             className=" border-2 border-gray-500 w-96 h-96 object-cover object-center mb-4"
             src={newLaunch.gallery[0]}
