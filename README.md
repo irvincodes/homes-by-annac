@@ -11,14 +11,21 @@ _Disclaimer_ - I decided to keep this section short, but there are many more thi
 
 # Technologies Used
 
-1. Javascript
-2. CSS
-3. Express JS
-4. VSCode
-5. MongoDB
-6. Cyclic (Deployment)
-7. bcrypt (Hashing Password)
-8. connect-mongo (Create Session MongoDB)
+- jwt-decode v.1.2
+- react v18.2.0
+- tailwindcss v3.3.1
+- typescript v4.9.3
+- vite - v4.2.0
+- react-icons v4.8.0
+- bcrypt v5.1.0
+- multer" v1.4.5-lts.1
+- uuid v9.0.0
+- mongoose v7.0.3
+- jsonwebtoken v9.0.0
+- express v4.18.2
+- dotenv v16.0.3
+- bcrypt v5.1.0
+- @aws-sdk/client-s3 v3.316.0
 
 # Wireframe
 
