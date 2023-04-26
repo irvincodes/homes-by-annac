@@ -8,6 +8,7 @@ interface DecodedJwt extends JwtPayload {
 
 const isAuth =
   (authorized: string[]) => (req: Request, res: Response, next: () => void) => {
+    console.log("isAuth fired!");
     if (!AUTHENTICATE) return next();
     console.log("authenticating...");
 
@@ -16,12 +17,15 @@ const isAuth =
       if (!authorization) {
         throw new Error("Authorization header missing");
       }
-      const token = authorization.split(",")[1];
+      console.log("authorization: ", authorization);
+      const token = authorization.split(" ")[1];
+      console.log("token: ", token);
 
       const verifiedUser = jwt.verify(
         token,
         process.env.JWT_SECRET as string
       ) as DecodedJwt;
+      console.log("VerifiedUser: ", verifiedUser);
       if (authorized.includes(verifiedUser.accountType)) {
         console.log("authenticated...");
         req.headers.authorization = JSON.stringify(verifiedUser);
@@ -50,4 +54,4 @@ const isAuth =
 //   }
 // };
 
-module.exports = { isAuth };
+export default { isAuth };

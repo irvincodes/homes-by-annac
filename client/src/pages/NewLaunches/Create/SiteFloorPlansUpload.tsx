@@ -52,8 +52,13 @@ const SiteFloorPlansUpload: React.FC<SiteFloorPlansUploadProps> = ({
     }
 
     try {
+      const token = localStorage.getItem("token");
       const res = await fetch("/api/newlaunches/sitefloorplans", {
         method: "POST",
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+
         body: formData,
       });
       const data = await res.json();

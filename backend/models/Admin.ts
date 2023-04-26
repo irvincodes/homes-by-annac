@@ -11,8 +11,13 @@ const adminSchema = new Schema(
     password: { type: String, required: true },
     accountType: { type: String, default: "Admin" },
     newLaunches: {
-      type: mongoose.Types.ObjectId,
-      ref: "NewLaunch",
+      type: [
+        {
+          type: mongoose.Types.ObjectId,
+          ref: "NewLaunch",
+        },
+      ],
+      default: [],
     },
   },
   { timestamps: true }

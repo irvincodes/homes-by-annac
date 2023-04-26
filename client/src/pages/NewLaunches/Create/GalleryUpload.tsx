@@ -45,8 +45,13 @@ const GalleryUpload: React.FC<GalleryUploadProps> = ({ onUpload }) => {
     }
 
     try {
+      const token = localStorage.getItem("token");
       const res = await fetch("/api/newlaunches/gallery", {
         method: "POST",
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+
         body: formData,
       });
       const data = await res.json();

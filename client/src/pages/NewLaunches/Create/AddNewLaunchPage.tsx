@@ -47,7 +47,18 @@ const districtTypes = [
 
 const tenureTypes = ["99 Years", "Freehold", "999 Years", "Others"];
 
-function AddNewLaunchPage() {
+interface User {
+  accountType?: string;
+  name?: string;
+  password?: string;
+  _id?: string;
+}
+
+interface AddNewLaunchPageProps {
+  user: User;
+}
+
+function AddNewLaunchPage(props: AddNewLaunchPageProps) {
   const [newLaunch, setNewLaunch] = useState({
     name: "",
     developer: "",
@@ -92,12 +103,17 @@ function AddNewLaunchPage() {
 
     const createNewLaunch = async () => {
       console.log("CreateNewLaunch fired!");
+      const token = localStorage.getItem("token");
+      const id = props.user._id;
+      console.log("Admin's id: ", id);
+      const newLaunchData = { newLaunch, adminId: id };
       const response = await fetch("/api/newlaunches", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `bearer ${token}`,
         },
-        body: JSON.stringify(newLaunch),
+        body: JSON.stringify(newLaunchData),
       });
       console.log("response: ", response);
       if (response.ok) {

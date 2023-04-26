@@ -40,7 +40,12 @@ const BookmarksPage = (props: BookmarksPageProps) => {
       console.log("fetchBookmarkedLaunches fired");
       try {
         console.log("try fired");
-        const response = await fetch(`/api/members/${props.user._id}`);
+        const token = localStorage.getItem("token");
+        const response = await fetch(`/api/members/${props.user._id}`, {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
+        });
         console.log("response: ", response);
         const data = await response.json();
         setBookmarkedLaunches(data);

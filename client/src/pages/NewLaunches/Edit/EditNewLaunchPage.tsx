@@ -108,10 +108,12 @@ function EditNewLaunchPage() {
   };
 
   const handleUpdate = async () => {
+    const token = localStorage.getItem("token");
     const response = await fetch(`/api/newlaunches/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `bearer ${token}`,
       },
       body: JSON.stringify(newLaunch),
     });

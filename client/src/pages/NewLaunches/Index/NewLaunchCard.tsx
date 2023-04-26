@@ -40,7 +40,12 @@ function NewLaunchCard(props: NewLaunchCardProps) {
     useEffect(() => {
       const fetchBookmarkedLaunches = async () => {
         try {
-          const response = await fetch(`/api/members/${props.user._id}`);
+          const token = localStorage.getItem("token");
+          const response = await fetch(`/api/members/${props.user._id}`, {
+            headers: {
+              Authorization: `bearer ${token}`,
+            },
+          });
           const data = await response.json();
           setbookmarkedLaunches(data);
         } catch (error) {

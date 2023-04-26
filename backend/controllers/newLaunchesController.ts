@@ -1,5 +1,10 @@
 import NewLaunch from "../models/NewLaunch";
+import Admin from "../models/Admin";
 import { Request, Response } from "express";
+import { ObjectId } from "mongoose";
+// interface NewLaunchWithId {
+//   _id: ObjectId;
+// }
 
 const index = async (req: Request, res: Response) => {
   try {
@@ -12,7 +17,15 @@ const index = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
   try {
-    const createdNewLaunch = await NewLaunch.create(req.body);
+    const { adminId, newLaunch } = req.body;
+    console.log("admin: ", adminId);
+    console.log("newLaunch: ", newLaunch);
+
+    const createdNewLaunch: any = await NewLaunch.create(newLaunch);
+    console.log("CreatedNewLaunch: ", createdNewLaunch);
+    const admin = await Admin.findById(adminId as ObjectId);
+    admin?.newLaunches.push(createdNewLaunch._id);
+    await admin?.save();
     res.status(201).json(createdNewLaunch);
     console.log("created New Launch");
   } catch (error) {

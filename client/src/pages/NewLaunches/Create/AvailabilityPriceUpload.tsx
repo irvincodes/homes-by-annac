@@ -29,8 +29,12 @@ const AvailabilityPriceUpload: React.FC<AvailabilityPriceUploadProps> = ({
     }
 
     try {
+      const token = localStorage.getItem("token");
       const res = await fetch("/api/newlaunches/availabilityprice", {
         method: "POST",
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
         body: formData,
       });
       const data = await res.json();

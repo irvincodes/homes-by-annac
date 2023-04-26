@@ -52,7 +52,10 @@ function App() {
         <div className="flex-1 overflow-y-scroll md:px-28 md:py-2">
           <Routes>
             <Route path="/" element={<MembersMainPage />} />
-            <Route path="/newlaunches/new" element={<AddNewLaunchPage />} />
+            <Route
+              path="/newlaunches/new"
+              element={<AddNewLaunchPage user={user} />}
+            />
             <Route
               path="/newlaunches"
               element={<NewLaunchesPage user={user} setUser={setUser} />}

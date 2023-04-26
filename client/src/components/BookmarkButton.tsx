@@ -15,7 +15,12 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
 
   useEffect(() => {
     const getMember = async () => {
-      const response = await fetch(`/api/members/${props.id}`);
+      const token = localStorage.getItem("token");
+      const response = await fetch(`/api/members/${props.id}`, {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      });
       const data = await response.json();
       const bookmarks = data.map((d: { _id: string }) => d._id);
       if (props.newLaunchId && bookmarks.includes(props.newLaunchId)) {
@@ -27,12 +32,12 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
 
   const toggleBookmark = async () => {
     console.log("toggleBookmark fired!");
-    // const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     const response = await fetch(`/api/members/${props.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        // Authorization: `bearer ${token}`,
+        Authorization: `bearer ${token}`,
       },
       body: JSON.stringify({ bookmarkId: props.newLaunchId }),
     });
@@ -50,14 +55,14 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
       {isBookmarked ? (
         <button
           onClick={toggleBookmark}
-          className="flex flex-col text-green-600 items-center hover:text-red-500 transition-colors duration-200"
+          className="flex flex-col text-green-600 items-center hover:text-red-400 transition-colors duration-400"
         >
           <BsBookmarkCheckFill size="1.5rem" className=" accent-white mb-1" />
         </button>
       ) : (
         <button
           onClick={toggleBookmark}
-          className="flex flex-col items-center text-red-600 hover:text-green-600 transition-colors duration-200"
+          className="flex flex-col items-center text-black hover:text-green-600 transition-colors duration-400"
         >
           <BsBookmarkX size="1.5rem" className=" accent-white mb-1" />
         </button>
