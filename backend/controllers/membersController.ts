@@ -61,12 +61,12 @@ const show = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
-    const memberBookmarks = await Member.findById(id).populate(
-      "bookmarkedLaunches"
-    );
-    if (!memberBookmarks) {
+    const member = await Member.findById(id).populate("bookmarkedLaunches");
+    if (!member) {
       return res.status(404).json({ message: "Invalid consumer." });
     }
+    const memberBookmarks = member.bookmarkedLaunches;
+    res.status(200).json(memberBookmarks);
   } catch (error) {
     res.status(500).json(error);
   }

@@ -18,7 +18,7 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
       const response = await fetch(`/api/members/${props.id}`);
       const data = await response.json();
       const bookmarks = data.map((d: { _id: string }) => d._id);
-      if (bookmarks.includes(props.newLaunchId)) {
+      if (props.newLaunchId && bookmarks.includes(props.newLaunchId)) {
         setIsBookmarked(true);
       }
     };
@@ -26,6 +26,7 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
   }, [props.id, props.newLaunchId]);
 
   const toggleBookmark = async () => {
+    console.log("toggleBookmark fired!");
     // const token = localStorage.getItem("token");
     const response = await fetch(`/api/members/${props.id}`, {
       method: "PUT",
@@ -35,10 +36,11 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
       },
       body: JSON.stringify({ bookmarkId: props.newLaunchId }),
     });
+    console.log(response);
     if (response.ok) {
       setIsBookmarked(!isBookmarked);
       if (props.removeNewLaunch) {
-        props.removeNewLaunch;
+        props.removeNewLaunch(props.newLaunchId as string);
       }
     }
   };
@@ -48,16 +50,16 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
       {isBookmarked ? (
         <button
           onClick={toggleBookmark}
-          className="flex flex-col items-center hover:text-red-500 transition-colors duration-200"
+          className="flex flex-col text-green-600 items-center hover:text-red-500 transition-colors duration-200"
         >
-          <BsBookmarkX size="1.5rem" className=" accent-white mb-1" />
+          <BsBookmarkCheckFill size="1.5rem" className=" accent-white mb-1" />
         </button>
       ) : (
         <button
           onClick={toggleBookmark}
-          className="flex flex-col items-center hover:text-green-500 transition-colors duration-200"
+          className="flex flex-col items-center text-red-600 hover:text-green-600 transition-colors duration-200"
         >
-          <BsBookmarkCheckFill size="1.5rem" className=" accent-white mb-1" />
+          <BsBookmarkX size="1.5rem" className=" accent-white mb-1" />
         </button>
       )}
 

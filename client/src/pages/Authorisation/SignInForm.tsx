@@ -20,6 +20,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ setUser }) => {
       const response = await fetch("/api/members/login", {
         method: "POST",
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginAttempt),
