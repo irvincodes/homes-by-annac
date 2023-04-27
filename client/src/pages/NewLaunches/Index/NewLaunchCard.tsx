@@ -76,7 +76,7 @@ function NewLaunchCard(props: NewLaunchCardProps) {
             src={props.property.gallery[0]}
           />
         </div>
-        <div>
+        <div className=" w-60 ml-2">
           <div>
             <span className="font-semibold text-right">District: </span>
             {props.property.district}

@@ -50,7 +50,7 @@ function App() {
         <MembersNavBar user={user} setUser={setUser} />
         {/* )} */}
 
-        <div className="flex-1 overflow-y-scroll md:px-28 md:py-2">
+        <div className="flex-1 overflow-y-scroll md:px-36 md:py-2">
           <Routes>
             <Route path="/" element={<MembersMainPage />} />
             <Route

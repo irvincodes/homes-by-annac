@@ -69,28 +69,4 @@ const deleteNewLaunch = async (req: Request, res: Response) => {
   }
 };
 
-// const seed = async (req, res) => {
-//   try {
-//     const newNewLaunch = await NewLaunch.create({
-//       name: "asd",
-//       developer: "asd",
-//       type: "asd",
-//       units: 11,
-//       siteArea: "asd",
-//       expTOP: "asd",
-//       address: "asd",
-//       district: "D27 - Yishun, Sembawang",
-//       tenure: "Freehold",
-//       description: "asd",
-//       keyPoints: "asd",
-//       gallery: "asd",
-//       siteFloorPlans: "asd",
-//       availabilityPrice: "asd",
-//     });
-//     res.status(200).json(newNewLaunch);
-//   } catch (error) {
-//     res.status(500).json({ error });
-//   }
-// };
-
 export default { index, create, update, show, delete: deleteNewLaunch };

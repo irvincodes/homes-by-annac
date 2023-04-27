@@ -33,7 +33,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
 
   return (
     <>
-      <nav className=" bg-rose-100 px-2 py-3 z-50 sticky border-b border-black">
+      <nav className=" bg-rose-100 px-16 py-3 z-50 sticky border-b border-black">
         <div className="container mx-auto flex items-center justify-between justify-items-center">
           <img
             src={mainLogo}
@@ -92,7 +92,7 @@ export default function MembersNavBar(props: MembersNavBarProps) {
                 <p className=" font-semibold">Log In</p>
               </button>
               {dropdownVisibile && (
-                <ul className=" flex flex-col items-center absolute mr-32 right-4 left-auto z-10 divide-y divide-rose-500 whitespace-nowrap border-2 border-rose-200 bg-white">
+                <ul className=" flex flex-col items-center absolute mr-12 right-4 left-auto z-10 divide-y divide-rose-500 whitespace-nowrap border-2 border-rose-200 bg-white">
                   <LoggedOutOptions />
                 </ul>
               )}

@@ -240,7 +240,7 @@ function AddNewLaunchPage(props: AddNewLaunchPageProps) {
 
             <br />
             <div className="flex justify-center">
-              <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
+              <button className=" bg-pink-400 hover:bg-pink-500 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
                 SUBMIT
               </button>
             </div>

@@ -35,10 +35,6 @@ export async function s3Upload(files: FileObject[]): Promise<any> {
     };
   });
 
-  // return await Promise.all(
-  //   params.map((param: any) => s3client.send(new PutObjectCommand(param)))
-  // );
-
   const uploadResponses = await Promise.all(
     params.map((param) =>
       s3client.send(new PutObjectCommand(param)).then((response) => ({

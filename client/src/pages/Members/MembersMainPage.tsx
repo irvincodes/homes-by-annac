@@ -13,7 +13,7 @@ export default function MembersMainPage() {
           ></img>
         </div>
         <div className="absolute inset-x-0 top-32 z-0 px-0">
-          <div className="w-5/6 border-2  left-0 right-0 mx-auto bg-rose-100 py-60"></div>
+          <div className="w-5/6 border-2  left-0 right-0 mx-auto bg-rose-100 py-[14%]"></div>
         </div>
         {/* <div className="partbg w-full h-96 bg-zinc-400 z-1"></div> */}
         {/* <div className="fixed top-0 left-0 z-0 w-full h-full">

@@ -1,26 +1,3 @@
-// import React from "react";
-
-// const SiteFloorPlansUpload = ({ onUpload }) => {
-//   const handleChange = (event) => {
-//     const files = event.target.files;
-//     onUpload(files, "/sitefloorplans");
-//   };
-
-//   return (
-//     <div>
-//       <label htmlFor="sitefloorplans-upload">Upload Site Floor Plans</label>
-//       <input
-//         type="file"
-//         id="sitefloorplans-upload"
-//         onChange={handleChange}
-//         multiple
-//       />
-//     </div>
-//   );
-// };
-
-// export default SiteFloorPlansUpload;
-
 import React, { useState } from "react";
 
 interface SiteFloorPlansUploadProps {
