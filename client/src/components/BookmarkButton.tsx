@@ -67,10 +67,6 @@ const BookmarkButton = (props: BookmarkButtonProps) => {
           <BsBookmarkX size="1.5rem" className=" accent-white mb-1" />
         </button>
       )}
-
-      {/* <button onClick={toggleBookmark}>
-        {isBookmarked ? <BsBookmarkX className="" /> : <BsBookmarkCheckFill />}
-      </button> */}
     </>
   );
 };

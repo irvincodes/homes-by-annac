@@ -5,20 +5,12 @@ import mainvideo from "../../assets/mainvideo.mp4";
 export default function MembersMainPage() {
   return (
     <>
-      {/* <MembersNavBar></MembersNavBar> */}
       <div className=" relative w-full h-[56.25vw] z-0">
         <div className=" flex justify-center mt-2">
           <img
             src="https://i.imgur.com/aaGFn2u.jpg"
             className="w-1/2 h-2/5 object-cover brightness-90 mb-16  border-4 border- z-10"
           ></img>
-          {/* <video
-            className="w-3/5 h-2/5 object-cover brightness-90 mb-16  border-8 z-10"
-            autoPlay
-            muted
-            loop
-            src="https://i.imgur.com/NA835MZ.mp4"
-          ></video> */}
         </div>
         <div className="absolute inset-x-0 top-32 z-0 px-0">
           <div className="w-5/6 border-2  left-0 right-0 mx-auto bg-rose-100 py-60"></div>

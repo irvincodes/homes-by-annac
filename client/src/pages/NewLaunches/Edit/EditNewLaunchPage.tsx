@@ -161,12 +161,7 @@ function EditNewLaunchPage() {
         onChange={handleChange}
         name="type"
       />
-      {/* <input
-        className="mb-4 w-96 bg-gray-200 p-2"
-        name="type"
-        value={newLaunch.type}
-        onChange={handleChange}
-      ></input> */}
+
       <br />
       <label className=" font-semibold">Total Units: </label>
       <br />
@@ -177,15 +172,7 @@ function EditNewLaunchPage() {
         onChange={handleChange}
       ></input>
       <br />
-      {/* <label className=" font-semibold">Site Area: </label>
-      <br />
-      <input
-        className="mb-4 w-96 bg-gray-200 p-2"
-        name="siteArea"
-        value={newLaunch.siteArea}
-        onChange={handleChange}
-      ></input>
-      <br /> */}
+
       <label className=" font-semibold">Estimated TOP: </label>
       <br />
       <input
@@ -212,12 +199,7 @@ function EditNewLaunchPage() {
         onChange={handleChange}
         name="district"
       />
-      {/* <input
-        className="mb-4 w-96 bg-gray-200 p-2"
-        name="district"
-        value={newLaunch.district}
-        onChange={handleChange}
-      ></input> */}
+
       <br />
       <label className=" font-semibold">Tenure: </label>
       <br />
@@ -227,12 +209,7 @@ function EditNewLaunchPage() {
         onChange={handleChange}
         name="tenure"
       />
-      {/* <input
-        className="mb-4 w-96 bg-gray-200 p-2"
-        name="tenure"
-        value={newLaunch.tenure}
-        onChange={handleChange}
-      ></input> */}
+
       <br />
       <label className=" font-semibold">Description: </label>
       <br />
@@ -243,72 +220,14 @@ function EditNewLaunchPage() {
         onChange={handleChange}
       ></input>
       <br />
-      {/* <label className=" font-semibold">Key Points: </label>
-      <br />
-      <input
-        className="mb-4 w-96 bg-gray-200 p-2"
-        name="keyPoints"
-        value={newLaunch.keyPoints}
-        onChange={handleChange}
-      ></input>
-      <br /> */}
+
       <GalleryUpload onUpload={setGallery} />
-      {/* <label className=" font-semibold">Gallery: </label>
-            <br />
-            <input
-              className="mb-4 w-96 py-2"
-              name="gallery"
-              type="file"
-              id="gallery-upload"
-              onChange={(e) => handleFileChange(e, "gallery")}
-              multiple
-            /> */}
-      {/* <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="gallery"
-              value={newLaunch.gallery}
-              onChange={handleChange}
-            ></input> */}
+
       <br />
       <SiteFloorPlansUpload onUpload={setSiteFloorPlans} />
-      {/* <label className=" font-semibold">Site/Floor Plans: </label>
-            <br /> */}
-      {/* <input
-              className="mb-4 w-96 py-2"
-              name="siteFloorPlans"
-              type="file"
-              id="sitefloorplans-upload"
-              onChange={(e) => handleFileChange(e, "siteFloorPlans")}
-              multiple
-            /> */}
-      {/* <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="siteFloorPlans"
-              value={newLaunch.siteFloorPlans}
-              onChange={handleChange}
-            ></input> */}
+
       <br />
       <AvailabilityPriceUpload onUpload={setAvailabilityPrice} />
-      {/* <label className=" font-semibold">Price & Availability: </label>
-            <br /> */}
-      {/* <input
-              className="mb-4 w-96 py-2"
-              name="availabilityPrice"
-              type="file"
-              id="availabilityprice-upload"
-              onChange={(e) => handleFileChange(e, "availabilityPrice")}
-              multiple
-            /> */}
-      {/* <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="availabilityPrice"
-              value={newLaunch.availabilityPrice}
-              onChange={handleChange}
-            ></input> */}
-      <br />
-      {/* <button className=" bg-teal-200 py-2 px-4 border-2 border-cyan-950 rounded-md font-semibold">
-        SUBMIT
-      </button> */}
     </div>
   );
 }

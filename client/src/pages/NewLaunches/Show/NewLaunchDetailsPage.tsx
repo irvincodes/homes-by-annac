@@ -132,23 +132,6 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
           </div>
         )}
 
-        {/* <div className="flex justify-center mb-4">
-          <div className=" mr-2">
-            <Link to={`/newlaunches/${id}/edit`}>
-              <button className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold">
-                Edit Details
-              </button>
-            </Link>
-          </div>
-          <div className="flex justify-center ml-2">
-            <button
-              onClick={onDelete}
-              className=" bg-teal-200 py-2 px-4 border-2 mt-2 w-40 border-cyan-950 rounded-md font-semibold"
-            >
-              Delete
-            </button>
-          </div>
-        </div> */}
         <br />
         <div className="">
           <span className=" font-semibold">Developer: </span>
@@ -165,10 +148,7 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
           {newLaunch.units}
         </div>
         <br />
-        {/* <label className=" font-semibold">Site Area: </label>
-        <br />
-        <div>{newLaunch.siteArea}</div>
-        <br /> */}
+
         <div className="">
           <span className=" font-semibold">Estimated TOP Year: </span>
           {newLaunch.expTOP}
@@ -193,14 +173,7 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
           <span className=" font-semibold">Description: </span>
           {newLaunch.description}
         </div>
-        {/* <label className=" font-semibold">Description: </label>
-        <br />
-        <div>{newLaunch.description}</div> */}
-        <br />
-        {/* <label className=" font-semibold">Key Points: </label>
-        <br />
-        <div>{newLaunch.keyPoints}</div>
-        <br /> */}
+
         <label className=" font-semibold">Gallery: </label>
         <div className="imagesContainer grid grid-cols-4">
           {newLaunch.gallery.map((imgURL, index) => (
@@ -212,22 +185,7 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
             />
           ))}
         </div>
-        {/* <label className=" font-semibold">Gallery: </label>
-            <br />
-            <input
-              className="mb-4 w-96 py-2"
-              name="gallery"
-              type="file"
-              id="gallery-upload"
-              onChange={(e) => handleFileChange(e, "gallery")}
-              multiple
-            /> */}
-        {/* <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="gallery"
-              value={newLaunch.gallery}
-              onChange={handleChange}
-            ></input> */}
+
         <br />
         <label className=" font-semibold">Site & Floor Plans: </label>
         <div className="imagesContainer grid grid-cols-4">
@@ -242,22 +200,7 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
             </div>
           ))}
         </div>
-        {/* <label className=" font-semibold">Site/Floor Plans: </label>
-            <br /> */}
-        {/* <input
-              className="mb-4 w-96 py-2"
-              name="siteFloorPlans"
-              type="file"
-              id="sitefloorplans-upload"
-              onChange={(e) => handleFileChange(e, "siteFloorPlans")}
-              multiple
-            /> */}
-        {/* <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="siteFloorPlans"
-              value={newLaunch.siteFloorPlans}
-              onChange={handleChange}
-            ></input> */}
+
         <br />
         <label className=" font-semibold">Availability & Price: </label>
         <div className="imagesContainer grid grid-cols-4">
@@ -272,26 +215,6 @@ function NewLaunchDetailsPage(props: NewLaunchDetailsPageProps) {
             </div>
           ))}
         </div>
-        {/* <label className=" font-semibold">Price & Availability: </label>
-            <br /> */}
-        {/* <input
-              className="mb-4 w-96 py-2"
-              name="availabilityPrice"
-              type="file"
-              id="availabilityprice-upload"
-              onChange={(e) => handleFileChange(e, "availabilityPrice")}
-              multiple
-            /> */}
-        {/* <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="availabilityPrice"
-              value={newLaunch.availabilityPrice}
-              onChange={handleChange}
-            ></input> */}
-        <br />
-        {/* <button className=" bg-teal-200 py-2 px-4 border-2 border-cyan-950 rounded-md font-semibold">
-          SUBMIT
-        </button> */}
       </div>
     </div>
   );

@@ -172,13 +172,7 @@ function AddNewLaunchPage(props: AddNewLaunchPageProps) {
               onChange={handleChange}
               name="type"
             />
-            {/* <br />
-            <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="type"
-              value={newLaunch.type}
-              onChange={handleChange}
-            ></input> */}
+
             <br />
             <label className=" font-semibold">Total Units: </label>
             <br />
@@ -189,15 +183,7 @@ function AddNewLaunchPage(props: AddNewLaunchPageProps) {
               onChange={handleChange}
             ></input>
             <br />
-            {/* <label className=" font-semibold">Site Area: </label>
-            <br />
-            <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="siteArea"
-              value={newLaunch.siteArea}
-              onChange={handleChange}
-            ></input>
-            <br /> */}
+
             <label className=" font-semibold">Estimated TOP: </label>
             <br />
             <input
@@ -223,13 +209,7 @@ function AddNewLaunchPage(props: AddNewLaunchPageProps) {
               onChange={handleChange}
               name="district"
             />
-            {/* <br />
-            <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="district"
-              value={newLaunch.district}
-              onChange={handleChange}
-            ></input> */}
+
             <br />
             <label className=" font-semibold">Tenure: </label>
             <DropdownSelect
@@ -238,13 +218,7 @@ function AddNewLaunchPage(props: AddNewLaunchPageProps) {
               onChange={handleChange}
               name="tenure"
             />
-            {/* <br />
-            <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="tenure"
-              value={newLaunch.tenure}
-              onChange={handleChange}
-            ></input> */}
+
             <br />
             <label className=" font-semibold">Description: </label>
             <br />
@@ -255,15 +229,7 @@ function AddNewLaunchPage(props: AddNewLaunchPageProps) {
               onChange={handleChange}
             ></input>
             <br />
-            {/* <label className=" font-semibold">Key Points: </label>
-            <br />
-            <input
-              className="mb-4 w-96 bg-gray-200 p-2"
-              name="keyPoints"
-              value={newLaunch.keyPoints}
-              onChange={handleChange}
-            ></input>
-            <br /> */}
+
             <GalleryUpload onUpload={setGallery} />
 
             <br />

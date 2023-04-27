@@ -43,24 +43,6 @@ const uploadFile = async (req: Request, res: Response) => {
   }
 };
 
-// const uploadFile = async (req: Request, res: Response) => {
-//   try {
-//     upload(req, res, async () => {
-//       const files = req.files as Express.Multer.File[];
-//       const fileObjects = files.map((file) => ({
-//         buffer: file.buffer,
-//         mimetype: file.mimetype,
-//         originalname: file.originalname,
-//       }));
-//       const results = await s3Uploadv3(fileObjects);
-//       console.log(results);
-//       return res.json({ status: "successfully uploaded" });
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   if (error instanceof multer.MulterError) {
     if (error.code === "LIMIT_FILE_SIZE") {

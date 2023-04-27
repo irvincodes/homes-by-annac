@@ -60,14 +60,6 @@ export default function MembersNavBar(props: MembersNavBarProps) {
             ""
           )}
 
-          {/* <Link
-            to=""
-            className=" ml-[50%] flex flex-col items-center hover:text-pink-600 transition-colors duration-300 "
-          >
-            <BsBookmarkStar size="1.5rem" className=" accent-white mb-1" />
-            <p>My Bookmarks</p>
-          </Link> */}
-
           {props.user.accountType === "Admin" ? (
             ""
           ) : (
@@ -80,13 +72,6 @@ export default function MembersNavBar(props: MembersNavBarProps) {
             </Link>
           )}
 
-          {/* <Link
-            to=""
-            className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
-          >
-            <RiChatHeartLine size="1.5rem" className=" accent-white mb-1" />
-            <p>Contact</p>
-          </Link> */}
           <Link
             to="/newlaunches"
             className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
@@ -94,38 +79,6 @@ export default function MembersNavBar(props: MembersNavBarProps) {
             <BiBuildingHouse size="1.5rem" className=" accent-white mb-1" />
             <p className=" font-semibold">New Launches</p>
           </Link>
-          {/* {props.user ? (
-            <Link to="" onClick={handleDropdown}>
-              Log Out
-            </Link>
-          ) : (
-            <Link to="" onClick={handleDropdown}>
-              Log In
-            </Link>
-          )}
-          {dropdown ? (
-            <ul>
-              <LoggedInOptions user={props.user} setUser={props.setUser} />
-            </ul>
-          ) : null} */}
-          {/* <div>
-            <button
-              onClick={handleDropdown}
-              className="flex flex-col items-center hover:text-pink-600 transition-colors duration-300"
-            >
-              <GiHeartKey size="1.5rem" className=" accent-white mb-1" />
-              Log In
-            </button>
-            {dropdownVisbile ? (
-              <ul className="absolute mr-32 right-4 left-auto z-10 divide-y whitespace-nowrap border-2 bg-white">
-                {props.user ? (
-                  <LoggedInOptions user={props.user} setUser={props.setUser} />
-                ) : (
-                  <LoggedOutOptions />
-                )}
-              </ul>
-            ) : null}
-          </div> */}
 
           {props.user.accountType !== undefined ? (
             <LogOutButton setUser={props.setUser} />
