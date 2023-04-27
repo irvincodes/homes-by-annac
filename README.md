@@ -52,6 +52,10 @@ Admin Role
 - bcrypt v5.1.0
 - @aws-sdk/client-s3 v3.316.0
 
+## Timeline for Project
+
+6 Working Days
+
 # ERD Models
 
 ![Alt text](md-screenshots/ERD.png)
@@ -85,10 +89,6 @@ Below are some of the basic wireframes I did up before starting on the project.
 ![Alt text](md-screenshots/Wireframe-MemberLoggedIn.png)
 
 ![Alt text](md-screenshots/Wireframe-MemberLoggedInBookmarks.png)
-
-## Timeline for Project
-
-6 Working Days
 
 # App Screenshots
 
